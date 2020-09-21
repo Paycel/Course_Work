@@ -1,0 +1,82 @@
+a {
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.head ul{
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+  background: #888888;
+  height: 5em;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+}
+
+.head li{
+  margin: auto;
+  display: block;
+  background: #b3d4fc;
+  border-radius: 20px;
+}
+
+.btnMenu{
+  font-family: Bookman Old Style, serif;
+  font-size: 20px;
+  margin: auto;
+  padding: 0.7em 4em;
+  display: block;
+  background: #b3d4fc;
+  text-decoration: none;
+  border: 2px solid black;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.drop-child{
+  display: none;
+}
+
+.btnHead:hover .drop-child{
+  display: block;
+}
+
+.btnHead{
+  position: relative;
+  display: inline-block;
+}
+
+.drop-child a{
+  color: white;
+  padding: 20px;
+  text-decoration: none;
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
