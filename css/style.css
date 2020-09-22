@@ -2,16 +2,20 @@ a {
   text-decoration: none;
 }
 
+body{
+  background: lavenderblush;
+}
+
 * {
   margin: 0;
   padding: 0;
 }
 
-.head ul{
+.head{
   list-style: none;
   margin: 0;
   padding-left: 0;
-  background: #888888;
+  background: honeydew;
   height: 5em;
   position: relative;
   display: flex;
@@ -22,7 +26,7 @@ a {
 .head li{
   margin: auto;
   display: block;
-  background: #b3d4fc;
+  background: honeydew;
   border-radius: 20px;
 }
 
@@ -32,7 +36,7 @@ a {
   margin: auto;
   padding: 0.7em 4em;
   display: block;
-  background: #b3d4fc;
+  background: honeydew;
   text-decoration: none;
   border: 2px solid black;
   cursor: pointer;
@@ -45,6 +49,8 @@ a {
 
 .btnHead:hover .drop-child{
   display: block;
+  animation: rotateMenu 400ms ease-in-out forwards;
+  transform-origin: center;
 }
 
 .btnHead{
@@ -53,12 +59,46 @@ a {
 }
 
 .drop-child a{
-  color: white;
+  color: black;
   padding: 20px;
   text-decoration: none;
   display: block;
+  text-align: center;
 }
 
+.blockIntroduction {
+  display: flex;
+  margin: 2em;
+  background-color: blanchedalmond;
+}
+
+.blockIntroduction p{
+  margin-left: 10px;
+  font-family: "Eras Bold ITC", monospace;
+}
+
+@keyframes rotateMenu {
+  0% {
+    transform: rotateX(-90deg)
+  }
+  70% {
+    transform: rotateX(20deg)
+  }
+  100% {
+    transform: rotateX(0deg)
+  }
+}
+
+.contacts{
+  margin: 3em;
+}
+
+.contacts > p{
+  font-family: "Eras Bold ITC", monospace;
+  display: block;
+  font-size: xx-large;
+  text-align: center;
+}
 
 
 
