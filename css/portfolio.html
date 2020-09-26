@@ -2,98 +2,87 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Registration</title>
+  <title>Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type="text/css" href="../font_awesome/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 </head>
 <body>
 
-<nav>
-  <ul class="head">
-    <li>
-      <div class="btnHead">
-        <button class="btnMenu">Пункт 1</button>
-        <div class="drop-child">
-          <a href="">Ссылка 1</a>
-          <a href="">Ссылка 2</a>
-          <a href="">Ссылка 3</a>
-        </div>
+<div class="entry">
+  <div class="entry__welcome">Welcome</div>
+  <div class="entry__blocks">
+    <div class="entry__blocks__column">
+      <div class="entry__block" id="block1">
+        <a class="anchor" href="#info">
+          <div>
+            <i class="fas fa-info-circle"></i>
+            About me
+          </div>
+        </a>
       </div>
-    </li>
-    <li>
-      <div class="btnHead">
-        <button class="btnMenu">Пункт 2</button>
-        <div class="drop-child">
-          <a href="">Ссылка 1</a>
-          <a href="">Ссылка 2</a>
-          <a href="">Ссылка 3</a>
-        </div>
+      <div class="entry__block" id="block2">
+        <a class="anchor" href="#skills">
+          <div>
+            <i class="fas fa-database"></i>
+            Projects
+          </div>
+        </a>
       </div>
-    </li>
-    <li>
-      <div class="btnHead">
-        <button class="btnMenu">Пункт 3</button>
-        <div class="drop-child">
-          <a href="">Ссылка 1</a>
-          <a href="">Ссылка 2</a>
-          <a href="">Ссылка 3</a>
-        </div>
+    </div>
+    <div class="entry__blocks__column">
+      <div class="entry__block" id="block3">
+        <a class="anchor" href="#skills">
+          <div>
+             <i class="fas fa-code"></i>
+             Skills
+          </div>
+        </a>
       </div>
-    </li>
-  </ul>
-</nav>
-
-
-
-<div class="body">
-  <div class="blockIntroduction">
-    <img src="../tile.png" height="350px" width="300px" alt="photo">
-    <p>Unreal text about author</p>
+      <div class="entry__block" id="block4">
+        <a class="anchor" href="#info">
+          <div>
+             <i class="fas fa-phone"></i>
+             Contacts
+          </div>
+        </a>
+      </div>
+    </div>
   </div>
-  <div class="blockSkills">
-
-  </div>
-
-</div>
-
-
-
-<div class="contacts">
-  <p>Contacts</p>
-  <div class="links">
-
+  <div class="arrow">
+    <i class="fas fa-arrow-down"></i>
   </div>
 </div>
-
-<div class="contacts">
-  <p>Contacts</p>
-  <div class="links">
-
+<div class="block__about" id="info">
+  <i class="fas fa-info-circle"></i>
+  About me
+  <hr class="line">
+  <div class="block__content">
+    <div class="block">
+      My name is Nikita Petukhov and you are reading my portfolio. At the moment I am 19 years old, I am a student of the second course of the university.
+    </div>
+    <div class="vert__line"></div>
+    <div class="block">
+      At the moment, I am actively studying various frameworks and programming languages. I also have studying projects that might interest you.
+    </div>
   </div>
 </div>
-<div class="contacts">
-  <p>Contacts</p>
-  <div class="links">
 
-  </div>
-</div><div class="contacts">
-  <p>Contacts</p>
-  <div class="links">
-
-  </div>
-</div><div class="contacts">
-  <p>Contacts</p>
-  <div class="links">
-
-  </div>
-</div><div class="contacts">
-  <p>Contacts</p>
-  <div class="links">
-
-  </div>
-</div><div class="contacts">
-  <p>Contacts</p>
-  <div class="links">
-
+<div class="block__skills" id="skills">
+  <i class="fas fa-code"></i>
+  Skills
+  <hr class="line">
+  <div class="block__content__skills">
+    <div class="item_skill"><w>Java</w><progress class="progress" max="100" value="75">
+    </progress></div>
+    <div class="item_skill">C++<progress class="progress" max="100" value="55">
+    </progress></div>
+    <div class="item_skill">HTML<progress class="progress" max="100" value="60">
+    </progress></div>
+    <div class="item_skill">CSS<progress class="progress" max="100" value="65">
+    </progress></div>
+    <div class="item_skill">PYTHON<progress class="progress" max="100" value="40">
+    </progress></div>
   </div>
 </div>
 

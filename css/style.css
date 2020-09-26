@@ -1,104 +1,156 @@
-a {
-  text-decoration: none;
-}
+@import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
 
 body{
-  background: lavenderblush;
+  background: white url("../img/triangle-mosaic.png") repeat;
 }
 
-* {
-  margin: 0;
-  padding: 0;
+@font-face {
+  font-family: Courier Prime Bold;
+  src: url("../fonts/courier_prime/CourierPrime-Bold.ttf");
 }
 
-.head{
-  list-style: none;
-  margin: 0;
-  padding-left: 0;
-  background: honeydew;
-  height: 5em;
-  position: relative;
+@font-face {
+  font-family: Courier Prime Regular;
+  src: url("../fonts/courier_prime/CourierPrime-Regular.ttf");
+}
+
+@font-face {
+  font-family: Courier Prime Italic;
+  src: url("../fonts/courier_prime/CourierPrime-Italic.ttf");
+}
+
+i {
+  font-family: FontAwesome, serif !important;
+}
+
+.entry{
+  display: block;
+  height: 100vh;
+  text-align: center;
+  align-items: center;
+  font-family: Courier Prime Bold, serif;
+}
+
+.entry__welcome{
+  position: absolute;
+  text-align: center;
+  top: 15%;
+  width: 100%;
+  font-size: 80px;
+}
+
+.entry__blocks{
+  display: flex;
+  margin-top: 25vh;
+  margin-left: 21vw;
+}
+.entry__blocks__column{
+  display: block;
+}
+.entry__block{
+  display: block;
+  text-align: center;
+  line-height: 200px;
+  height: 20vh;
+  width: 24vw;
+  border: 3px solid black;
+  border-radius: 20px;
+  margin: 1em;
+  font-size: 40px;
+}
+.arrow{
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+  width: 100%;
+  margin: auto;
+  font-size: 40px;
+}
+.anchor{
+  text-decoration: none;
+  color: black !important;
+}
+.block__about{
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  font-size: 40px;
+  top: 110%;
+  font-family: Courier Prime Bold, serif;
+}
+.line{
+  border-radius: 15px;
+  border-width: 3px;
+  border-color: black;
+  margin: 15px 40vw 30px;
+}
+.block__content{
   display: flex;
   align-items: center;
-
-}
-
-.head li{
-  margin: auto;
-  display: block;
-  background: honeydew;
+  text-align: center;
+  margin-left: 23vw;
+  margin-right: 23vw;
+  border: 3px solid black;
   border-radius: 20px;
 }
-
-.btnMenu{
-  font-family: Bookman Old Style, serif;
+.block{
+  width: 40%;
   font-size: 20px;
-  margin: auto;
-  padding: 0.7em 4em;
-  display: block;
-  background: honeydew;
-  text-decoration: none;
-  border: 2px solid black;
-  cursor: pointer;
+  font-family: "Courier Prime Regular", sans-serif;
+  text-align: center;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.vert__line{
+  border-right: 3px solid black;
+  margin: 20px 40px;
+  height: 100px;
+}
+.block__skills{
+  position: relative;
+  text-align: center;
+  width: 100%;
+  font-size: 40px;
+  top: 350px;
+  font-family: Courier Prime Bold, serif;
+}
+.block__content__skills{
+  display: inline-block;
+  align-items: center;
+  text-align: center;
+  margin-left: 23vw;
+  margin-right: 23vw;
+  border: 3px solid black;
   border-radius: 20px;
 }
-
-.drop-child{
-  display: none;
-}
-
-.btnHead:hover .drop-child{
-  display: block;
-  animation: rotateMenu 400ms ease-in-out forwards;
-  transform-origin: center;
-}
-
-.btnHead{
-  position: relative;
-  display: inline-block;
-}
-
-.drop-child a{
-  color: black;
-  padding: 20px;
-  text-decoration: none;
-  display: block;
+.item_skill{
   text-align: center;
-}
-
-.blockIntroduction {
   display: flex;
-  margin: 2em;
-  background-color: blanchedalmond;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-left: 30px;
+}
+.progress{
+  margin-right: 20px;
+  margin-left: auto;
+  height: 40px;
 }
 
-.blockIntroduction p{
-  margin-left: 10px;
-  font-family: "Eras Bold ITC", monospace;
+.item_skill w{
+  margin-right: 400px;
+  font-size: 40px;
 }
 
-@keyframes rotateMenu {
-  0% {
-    transform: rotateX(-90deg)
-  }
-  70% {
-    transform: rotateX(20deg)
-  }
-  100% {
-    transform: rotateX(0deg)
-  }
+
+* {
+<!--
+
+  -->
+
+  outline: 1px solid rebeccapurple;
+
 }
 
-.contacts{
-  margin: 3em;
-}
-
-.contacts > p{
-  font-family: "Eras Bold ITC", monospace;
-  display: block;
-  font-size: xx-large;
-  text-align: center;
-}
 
 
 
