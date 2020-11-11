@@ -5,6 +5,7 @@
   "keywords": "",
   "license": "",
   "author": "",
+  "type": "module",
   "scripts": {
     "build": "parcel build index.html",
     "dev": "parcel index.html --open",
@@ -12,6 +13,24 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.4"
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.12.1",
+    "@babel/preset-env": "^7.9.6",
+    "browserify": "^17.0.0",
+    "nodemon": "^2.0.6",
+    "parcel-bundler": "^1.12.4",
+    "watchify": "^3.11.1"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "brfs": "^1.6.1",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-browserify": "^1.0.3",
+    "mustache": "^4.0.1",
+    "require": "^2.4.20",
+    "requirejs": "^2.3.6",
+    "uniq": "^1.0.1"
   }
 }

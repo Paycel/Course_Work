@@ -1,0 +1,88 @@
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@-webkit-keyframes slideUp {
+  0% {
+    -webkit-transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+html {
+  height: 100%;
+}
+
+.left-menu{
+  width: auto;
+}
+
+body {
+  margin: 0;
+  color: #fff;
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.appearance{
+  animation: 3s fade-in;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+  -webkit-animation-timing-function: ease;
+  visibility: hidden;
+  animation-delay: 1.25s;
+}
+
+.slideUp{
+  animation: 3s slideUp;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+  -webkit-animation-timing-function: ease;
+  visibility: hidden;
+}
+
+.hor-line{
+  height: 6px;
+  background-color: white;
+  border-radius: 5px;
+  width: 65%;
+  align-self: center;
+}
+
+.carousel-item img{
+  max-width: 100%;
+  max-height: 35vh;
+}
+
+.card{
+  cursor: pointer;
+  transition-duration: 0.5s;
+}
+
+.card:hover{
+  transform: scale(1.1);
+}

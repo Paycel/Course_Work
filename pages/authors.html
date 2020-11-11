@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Главная</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript" src="../scripts/libs/jquery.cookies.js"></script>
+  <script src="../scripts/libs/ICanHaz.min.js"></script>
+  <script src="https://kit.fontawesome.com/28036c9f66.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../css/main-style.css">
+  <script src="../scripts/loader_parts.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+<script id="card" type="text/html">
+  <div class="card align-items-stretch m-2 col-xl-2 col-md-3 col-4 px-0" onclick="alert('{{name}}')">
+    <img class="card-img-top" src="{{linkImage}}"
+         alt="Card image cap"
+         style="height: 85%">
+    <div class="w-100"> {{name}}</div>
+  </div>
+</script>
+
+<div class="header hidden-block"></div>
+
+<div class="d-flex flex-lg-row flex-column justify-content-center">
+  <div
+    class="left-menu col-lg-3 mx-lg-3 pl-lg-1 pr-lg-3 mx-5 mt-4 mb-5 py-3 px-3 appearance order-2 order-lg-1"></div>
+  <div class="slideUp col-lg-8 container order-1 order-lg-2">
+    <div id="list-digests" class="row mx-0 mt-4 py-3 text-center d-flex justify-content-center"></div>
+  </div>
+</div>
+
+
+<div class="footer font-small bg-dark p-4 text-white appearance"></div>
+
+<script>
+  // navbar
+  $(window).on("load", function() {
+    $('#nav-authors').addClass('active');
+    $('#nav-about').removeClass('active');
+  });
+  // cookie
+  $("#list-digests").onclick = function (e) {
+    var li = e.target;
+    while (li.previousElementSibling) li = li.previousElementSibling;
+    $.cookie('digest-name', li.textContent, {path: '/'});
+  };
+  // cards
+  $(document).ready(function () {
+    var dict_authors = new Map();
+    dict_authors
+      .set("annenskiy_i.jpg", "И. Ф. Анненский")
+      .set("balmont_k.png", "К. Д. Бальмонт")
+      .set("beliy_a.png", "А. Белый")
+      .set("blok_a.jpg", "А. Блок")
+      .set("brusov_v.png", "В. Я. Брюсов");
+    var date_digests = [];
+    dict_authors.forEach((value, key) => {
+      date_digests.push({
+        linkImage: "../img/authors/" + key,
+        name: value
+      });
+    })
+    for (var i = 0; i < 3; i++)
+      for (var data of date_digests)
+        $('#list-digests').append(ich.card(data));
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
