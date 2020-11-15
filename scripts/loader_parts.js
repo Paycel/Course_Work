@@ -2,20 +2,32 @@ jQuery.ajax({
   url: "../pages/parts/header.html",
   dataType: "html",
   success: function (response) {
-    document.getElementsByClassName("header")[0].innerHTML = response;
+    try {
+      document.getElementsByClassName("header")[0].innerHTML = response;
+    } catch (TypeError) {
+      console.log(TypeError.stackTraceLimit);
+    }
   }
 });
 jQuery.ajax({
   url: "../pages/parts/footer.html",
   dataType: "html",
   success: function (response) {
-    document.getElementsByClassName("footer")[0].innerHTML = response;
+    try {
+      document.getElementsByClassName("footer")[0].innerHTML = response;
+    } catch (TypeError) {
+      console.log(TypeError.stackTraceLimit);
+    }
   }
 });
 jQuery.ajax({
   url: "../pages/parts/left-menu.html",
   dataType: "html",
   success: function (response) {
-    document.getElementsByClassName("left-menu")[0].innerHTML = response;
+    try {
+      document.getElementsByClassName("left-menu")[0].innerHTML = response;
+    } catch (TypeError) {
+      console.log(TypeError.stackTraceLimit);
+    }
   }
 });
