@@ -16,6 +16,7 @@
     "browserify": "^17.0.0"
   },
   "dependencies": {
+    "brfs": "^2.0.2",
     "express-browserify": "^1.0.3",
     "uniq": "^1.0.1"
   }
