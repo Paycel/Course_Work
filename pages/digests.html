@@ -9,16 +9,25 @@
   <link rel="stylesheet" href="../css/main-style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="../scripts/bundle_reader.js"></script>
   <script src="../scripts/loader_parts.js"></script>
+  <script src="../scripts/authors_dict.js"></script>
 </head>
 <body>
 
 
-
 <div class="header hidden-block"></div>
 <div class="digest"></div>
-
+<script>
+  var name = $.cookie('author-name');
+  alert(name);
+  fetch('../authors/' + name + '.json')
+    .then(function (resp) {
+      return resp.json();
+    })
+    .then(function (data) {
+      console.log(data.authorName);
+    })
+</script>
 <div class="footer font-small bg-dark p-4 text-white appearance"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
