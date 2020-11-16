@@ -10,13 +10,15 @@
   <script src="https://kit.fontawesome.com/28036c9f66.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../css/main-style.css">
   <script src="../scripts/loader_parts.js"></script>
+  <script src="../scripts/authors_dict.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 
 <script id="card" type="text/html">
-  <div class="card align-items-stretch m-2 col-xl-2 col-md-3 col-4 px-0" onclick="alert('{{name}}')">
+  <div class="card align-items-stretch m-2 col-xl-2 col-md-3 col-4 px-0"
+       onclick="$.cookie('author-name', '{{name}}', {path: '/'});location.href='digests.html'">
     <img class="card-img-top" src="{{linkImage}}"
          alt="Card image cap"
          style="height: 85%">
@@ -39,30 +41,17 @@
 
 <script>
   // navbar
-  $(window).on("load", function() {
+  $(window).on("load", function () {
     $('#nav-authors').addClass('active');
     $('#nav-about').removeClass('active');
   });
-  // cookie
-  $("#list-digests").onclick = function (e) {
-    var li = e.target;
-    while (li.previousElementSibling) li = li.previousElementSibling;
-    $.cookie('digest-name', li.textContent, {path: '/'});
-  };
   // cards
   $(document).ready(function () {
-    var dict_authors = new Map();
-    dict_authors
-      .set("annenskiy_i.jpg", "И. Ф. Анненский")
-      .set("balmont_k.png", "К. Д. Бальмонт")
-      .set("beliy_a.png", "А. Белый")
-      .set("blok_a.jpg", "А. Блок")
-      .set("brusov_v.png", "В. Я. Брюсов");
     var date_digests = [];
-    dict_authors.forEach((value, key) => {
+    authors.forEach((value, key) => {
       date_digests.push({
-        linkImage: "../img/authors/" + key,
-        name: value
+        linkImage: "../img/authors/" + value[0],
+        name: key
       });
     })
     for (var i = 0; i < 3; i++)
