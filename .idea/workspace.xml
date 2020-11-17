@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d80fa38a-e281-42a7-8603-45bd184957cc" name="Default Changelist" comment="" />
+    <list default="true" id="d80fa38a-e281-42a7-8603-45bd184957cc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,7 +31,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -40,12 +42,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1600708677839</updated>
-<<<<<<< Updated upstream
       <workItem from="1600708681890" duration="12923000" />
       <workItem from="1600781390796" duration="4740000" />
-=======
-      <workItem from="1600708681890" duration="13519000" />
->>>>>>> Stashed changes
+      <workItem from="1605628872630" duration="29000" />
     </task>
     <servers />
   </component>
@@ -53,13 +52,13 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1600781822091">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1605628898987">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1600781822091" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1600711443968">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1605628898987" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1605628901157">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1600711443968" />
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1605628901157" />
   </component>
 </project>
