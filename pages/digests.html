@@ -7,14 +7,41 @@
   <script type="text/javascript" src="../scripts/libs/jquery.cookies.js"></script>
   <script src="https://kit.fontawesome.com/28036c9f66.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../css/main-style.css">
+  <script src="../scripts/libs/ICanHaz.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="../scripts/loader_parts.js"></script>
   <script src="../scripts/authors_dict.js"></script>
 </head>
 <body>
-<div class="header hidden-block"></div>
-<div id="digest-data"></div>
+<script id="digest_template" type="text/html">
+  <div class="d-flex flex-lg-row my-2">
+    <div class="col-lg-8 order-1 font-weight-normal float-left">
+      {{name}}
+    </div>
+    <div class="col-lg-4 order-2">
+      <button type="button" class="btn btn-outline-dark float-right">Читать</button>
+    </div>
+  </div>
+</script>
+
+<header class="header hidden-block"></header>
+<div class="d-flex flex-lg-row flex-column justify-content-center">
+  <div class="left-menu col-lg-3 mx-lg-3 pl-lg-1 pr-lg-3 mr-5 mt-4 mb-5 py-3 px-3 appearance order-2 order-lg-1"></div>
+  <div class="d-block p-3 slideUp col-lg-8 container order-1 order-lg-2">
+    <div class="d-flex flex-lg-row flex-column justify-content-center">
+      <div id="author-name"
+           class="col-lg-8 d-flex align-items-center justify-content-center font-weight-bold order-1 p-lg-0 p-3"
+           style="font-size: xx-large"></div>
+      <div class="col-lg-4 order-2 m-auto" style="width: 25vh">
+        <img src="#" alt="author image" id="author-image" style="width: inherit" class="float-right mr-2 rounded">
+      </div>
+    </div>
+    <div id="digests-data" class="p-3 m-2"></div>
+  </div>
+</div>
+<footer class="footer font-small bg-dark p-4 text-white appearance"></footer>
+
 <script>
   window.onload = function () {
     var cookieName = $.cookie('author-name');
@@ -25,14 +52,21 @@
         return resp.json();
       })
       .then(function (data) {
-        console.log("json data: " + data.authorName);
-        var dict = data.digests;
-        var str = 'Иннокентий Анненский. ТРИЛИСТНИКИ (Сб. КИПАРИСОВЫЙ ЛАРЕЦ)';
-        $('#digest-data').html(dict[str]);
+        console.log("json data author name: " + data.authorName);
+        $('#author-name').html(data.authorName);
+        $('#author-image').attr("src", "../img/authors/" + authors.get(cookieName)[0]);
+        var poems = [];
+        for (var key in data.poems)
+          if (data.poems.hasOwnProperty(key)) {
+            console.log(key);
+            poems.push({
+              name: key
+            });
+          }
+        poems.forEach(data => $('#digests-data').append(ich.digest_template(data)));
       })
   }
 </script>
-<div class="footer font-small bg-dark p-4 text-white appearance"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
