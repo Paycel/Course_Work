@@ -13,23 +13,26 @@
   <script src="../scripts/authors_dict.js"></script>
 </head>
 <body>
-
-
 <div class="header hidden-block"></div>
-<div class="digest"></div>
+<div id="digest-data"></div>
 <script>
-  var name = $.cookie('author-name');
-  alert(name);
-  fetch('../authors/' + name + '.json')
-    .then(function (resp) {
-      return resp.json();
-    })
-    .then(function (data) {
-      console.log(data.authorName);
-    })
+  window.onload = function () {
+    var cookieName = $.cookie('author-name');
+    //todo add check cookieName equals null
+    var name = authors.get(cookieName)[1];
+    fetch('../authors/' + name + '.json')
+      .then(function (resp) {
+        return resp.json();
+      })
+      .then(function (data) {
+        console.log("json data: " + data.authorName);
+        var dict = data.digests;
+        var str = 'Иннокентий Анненский. ТРИЛИСТНИКИ (Сб. КИПАРИСОВЫЙ ЛАРЕЦ)';
+        $('#digest-data').html(dict[str]);
+      })
+  }
 </script>
 <div class="footer font-small bg-dark p-4 text-white appearance"></div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
