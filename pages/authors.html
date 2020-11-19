@@ -5,7 +5,6 @@
   <title>Авторы</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script type="text/javascript" src="../scripts/libs/jquery.cookies.js"></script>
   <script src="../scripts/libs/ICanHaz.min.js"></script>
   <script src="https://kit.fontawesome.com/28036c9f66.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../css/main-style.css">
@@ -18,7 +17,7 @@
 
 <script id="card" type="text/html">
   <div class="card align-items-stretch m-2 col-xl-2 col-md-3 col-4 px-0"
-       onclick="$.cookie('digests-author-name', '{{name}}', {path: '/'});location.href='digests.html'">
+       onclick="location.href='digests.html?name={{name}}'">
     <img class="card-img-top" src="{{linkImage}}"
          alt="Card image cap"
          style="height: 85%">
@@ -54,9 +53,8 @@
         name: key
       });
     })
-    for (var i = 0; i < 3; i++)
-      for (var data of date_digests)
-        $('#list-digests').append(ich.card(data));
+    for (var data of date_digests)
+      $('#list-digests').append(ich.card(data));
   });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"

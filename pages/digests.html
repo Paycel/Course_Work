@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title></title>
+  <title> </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script type="text/javascript" src="../scripts/libs/jquery.cookies.js"></script>
   <script src="https://kit.fontawesome.com/28036c9f66.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../css/main-style.css">
   <script src="../scripts/libs/ICanHaz.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="../scripts/decoder.js"></script>
   <script src="../scripts/loader_parts.js"></script>
   <script src="../scripts/authors_dict.js"></script>
 </head>
@@ -21,7 +22,7 @@
     </div>
     <div class="col-lg-4 order-2">
       <button type="button" class="btn digest-link btn-outline-dark float-right"
-              onclick="$.cookie('digest-digest-name', '{{name}}', {path: '/'});$.cookie('digest-author-name', '{{author}}', {path: '/'});window.open('digest.html')">
+              onclick="window.open('digest.html?author={{author}}&name={{name}}')">
         Читать
       </button>
     </div>
@@ -47,9 +48,7 @@
 
 <script>
   window.onload = function () {
-    var cookieName = $.cookie('digests-author-name');
-    //todo add check cookieName equals null
-    var name = authors.get(cookieName)[1];
+    var name = authors.get(param['name'])[1];
     document.title = name;
     fetch('../authors/' + name + '.json')
       .then(function (resp) {
@@ -58,13 +57,13 @@
       .then(function (data) {
         console.log("json data author name: " + data.authorName);
         $('#author-name').html(data.authorName);
-        $('#author-image').attr("src", "../img/authors/" + authors.get(cookieName)[0]);
+        $('#author-image').attr("src", "../img/authors/" + authors.get(param['name'])[0]);
         var poems = [];
         for (var key in data.poems)
           if (data.poems.hasOwnProperty(key))
             poems.push({
               name: key,
-              author: cookieName
+              author: param['name']
             });
         poems.forEach(data => $('#digests-data').append(ich.digest_template(data)));
       })
