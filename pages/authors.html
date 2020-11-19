@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Главная</title>
+  <title>Авторы</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script type="text/javascript" src="../scripts/libs/jquery.cookies.js"></script>
@@ -18,7 +18,7 @@
 
 <script id="card" type="text/html">
   <div class="card align-items-stretch m-2 col-xl-2 col-md-3 col-4 px-0"
-       onclick="$.cookie('author-name', '{{name}}', {path: '/'});location.href='digests.html'">
+       onclick="$.cookie('digests-author-name', '{{name}}', {path: '/'});location.href='digests.html'">
     <img class="card-img-top" src="{{linkImage}}"
          alt="Card image cap"
          style="height: 85%">

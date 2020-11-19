@@ -14,62 +14,64 @@
   <script src="../scripts/authors_dict.js"></script>
 </head>
 <body>
-<script id="digest_template" type="text/html">
-  <div class="d-flex flex-lg-row my-2">
-    <div class="col-lg-8 order-1 font-weight-normal float-left">
-      {{name}}
-    </div>
-    <div class="col-lg-4 order-2">
-      <button type="button" class="btn digest-link btn-outline-dark float-right"
-              onclick="$.cookie('digest-digest-name', '{{name}}', {path: '/'});$.cookie('digest-author-name', '{{author}}', {path: '/'});window.open('digest.html')">
-        Читать
-      </button>
-    </div>
-  </div>
-</script>
 
 <header class="header hidden-block"></header>
 <div class="d-flex flex-lg-row flex-column justify-content-center">
   <div class="left-menu col-lg-3 mx-lg-3 pl-lg-1 pr-lg-3 mr-5 mt-4 mb-5 py-3 px-3 appearance order-2 order-lg-1"></div>
   <div class="d-block p-3 slideUp col-lg-8 container order-1 order-lg-2">
     <div class="d-flex flex-lg-row flex-column justify-content-center">
-      <div id="author-name"
+      <div id="digest-name"
            class="col-lg-8 d-flex align-items-center justify-content-center font-weight-bold order-1 p-lg-0 p-3"
            style="font-size: xx-large"></div>
       <div class="col-lg-4 order-2 m-auto" style="width: 25vh">
         <img src="#" alt="author image" id="author-image" style="width: inherit" class="float-right mr-2 rounded">
       </div>
     </div>
-    <div id="digests-data" class="p-3 m-2"></div>
+    <div class="">
+      <div id="digest-intro" class="m-2 p-2">
+
+      </div>
+      <div id="other-digests">
+
+      </div>
+    </div>
   </div>
 </div>
-<footer class="footer font-small bg-dark p-4 text-white appearance"></footer>
-
 <script>
   window.onload = function () {
-    var cookieName = $.cookie('digests-author-name');
+    var author = $.cookie('digest-author-name');
+    var digest = $.cookie('digest-digest-name');
     //todo add check cookieName equals null
-    var name = authors.get(cookieName)[1];
-    document.title = name;
+
+    var name = authors.get(author)[1];
     fetch('../authors/' + name + '.json')
       .then(function (resp) {
         return resp.json();
       })
       .then(function (data) {
         console.log("json data author name: " + data.authorName);
-        $('#author-name').html(data.authorName);
-        $('#author-image').attr("src", "../img/authors/" + authors.get(cookieName)[0]);
-        var poems = [];
-        for (var key in data.poems)
-          if (data.poems.hasOwnProperty(key))
-            poems.push({
-              name: key,
-              author: cookieName
-            });
-        poems.forEach(data => $('#digests-data').append(ich.digest_template(data)));
+        console.log("json data digest-list name: " + data.poems[digest]);
+        var list = data.poems[digest];
+        $('#author-image').attr("src", "../img/authors/" + authors.get(author)[0]);
+        if (list.length === 1) {
+          $('#digest-intro').html(data.digests[list[0]]);
+          $('#digest-name').html(list[0]);
+          document.title = list[0];
+        } else {
+          var poems = [];
+          /*
+          todo
+            set intro and append poems
+            set cookies and go to new page (this)
+            or test new methods with .html?id=..
+           */
+          //poems.forEach(data => $('#digests-data').append(ich.digest_template(data)));
+
+        }
       })
   }
 </script>
+<footer class="footer font-small bg-dark p-4 text-white appearance"></footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
