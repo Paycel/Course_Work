@@ -26,6 +26,12 @@ jQuery.ajax({
   success: function (response) {
     try {
       document.getElementsByClassName("left-menu")[0].innerHTML = response;
+      authors.forEach((value, key) => {
+        $('#left-menu-drop').find('ul').append(
+          "<li class=\"list-group-item float-left\"><a href=\"digests.html?name=" + key + "\">"
+          + key + " - Сборники</a></li>\n"
+        );
+      })
     } catch (TypeError) {
       console.log(TypeError.stackTraceLimit);
     }
