@@ -8,10 +8,14 @@
   <link rel="stylesheet" href="../css/main-style.css">
   <script src="https://kit.fontawesome.com/28036c9f66.js" crossorigin="anonymous"></script>
   <script src="../scripts/loader_parts.js"></script>
+  <script src="../scripts/authors_dict.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+<div class="scrollup rounded">
+  <i class="fas fa-arrow-circle-up"></i>
+</div>
 <header class="header hidden-block"></header>
 <div class="d-flex flex-lg-row flex-column justify-content-center">
   <div class="left-menu col-lg-3 mx-lg-3 pl-lg-1 pr-lg-3 mr-5 mt-4 mb-5 py-3 px-3 appearance order-2 order-lg-1"></div>
@@ -51,7 +55,7 @@
     </div>
     <div class="p-2">Здесь вы можете найти разнообразные авторские сборники стихотворений
       русских поэтов серебрянного века.<br>
-      Предлагаем ознакомиться с <a href="authors.html" target="_blank">авторами</a> прямо сейчас и читать их сборники
+      Предлагаем ознакомиться с <a href="authors.html" target="_blank">поэтами</a> прямо сейчас и читать их сборники
       онлайн!
     </div>
   </div>
@@ -59,8 +63,9 @@
 <script>
   // navbar
   $(window).on("load", function () {
-    $('#nav-authors').removeClass('active');
+    $('#nav-poets').removeClass('active');
     $('#nav-about').addClass('active');
+    $('#nav-sources').removeClass('active');
   });
 </script>
 <footer class="footer font-small bg-dark p-4 text-white appearance"></footer>

@@ -37,3 +37,20 @@ jQuery.ajax({
     }
   }
 });
+$(function () {
+  $('.scrollup').click(function () {
+    $("html, body").animate({
+      scrollTop: 0
+    }, 1000);
+  })
+})
+$(window).scroll(function () {
+  if ($(this).scrollTop() > 200 &&
+    ($(document).height() - $('.footer').height() - $(this).scrollTop() > 1300 ||
+      $(document).height() - $('.left-menu').height() - $(this).scrollTop() > 1300)) {
+    $('.scrollup').fadeIn();
+  }
+  else {
+    $('.scrollup').fadeOut();
+  }
+});

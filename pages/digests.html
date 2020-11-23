@@ -15,6 +15,9 @@
   <script src="../scripts/authors_dict.js"></script>
 </head>
 <body>
+<div class="scrollup rounded">
+  <i class="fas fa-arrow-circle-up"></i>
+</div>
 <script id="digest_template" type="text/html">
   <div class="d-flex flex-lg-row my-2">
     <div class="col-lg-8 order-1 font-weight-normal float-left">
@@ -49,6 +52,7 @@
 <script>
   window.onload = function () {
     var name = authors.get(param['name'])[1];
+    console.log(name);
     document.title = name;
     fetch('../authors/' + name + '.json')
       .then(function (resp) {

@@ -49,7 +49,7 @@ body {
 }
 
 .appearance {
-  animation: 3s fade-in;
+  animation: 2.5s fade-in;
   animation-fill-mode: forwards;
   animation-timing-function: ease;
   -webkit-animation-timing-function: ease;
@@ -58,7 +58,7 @@ body {
 }
 
 .slideUp {
-  animation: 3s slideUp;
+  animation: 2.5s slideUp;
   animation-fill-mode: forwards;
   animation-timing-function: ease;
   -webkit-animation-timing-function: ease;
@@ -85,4 +85,22 @@ body {
 
 .card:hover {
   transform: scale(1.1);
+}
+
+div.scrollup {
+  position: fixed;
+  color: #fff;
+  background-color: #286090;
+  right: 20px;
+  bottom: 20px;
+  padding: 4px 10px;
+  font-size: 40px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  cursor: pointer;
+  display: none;
+  text-align: center;
+}
+div.scrollup:hover {
+  background-color: #000;
 }

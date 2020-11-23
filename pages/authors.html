@@ -14,7 +14,9 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-
+<div class="scrollup rounded">
+  <i class="fas fa-arrow-circle-up"></i>
+</div>
 <script id="card" type="text/html">
   <div class="card align-items-stretch m-2 col-xl-2 col-md-3 col-4 px-0"
        onclick="location.href='digests.html?name={{name}}'">
@@ -41,8 +43,9 @@
 <script>
   // navbar
   $(window).on("load", function () {
-    $('#nav-authors').addClass('active');
+    $('#nav-poets').addClass('active');
     $('#nav-about').removeClass('active');
+    $('#nav-sources').removeClass('active');
   });
   // cards
   $(document).ready(function () {
