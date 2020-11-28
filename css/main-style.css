@@ -90,6 +90,7 @@ body {
 div.scrollup {
   position: fixed;
   color: #fff;
+  z-index: 1;
   background-color: #286090;
   right: 20px;
   bottom: 20px;
