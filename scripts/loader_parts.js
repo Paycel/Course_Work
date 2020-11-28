@@ -1,5 +1,5 @@
 jQuery.ajax({
-  url: "../pages/parts/header.html",
+  url: "pages/parts/header.html",
   dataType: "html",
   success: function (response) {
     try {
@@ -10,7 +10,7 @@ jQuery.ajax({
   }
 });
 jQuery.ajax({
-  url: "../pages/parts/footer.html",
+  url: "pages/parts/footer.html",
   dataType: "html",
   success: function (response) {
     try {
@@ -21,7 +21,7 @@ jQuery.ajax({
   }
 });
 jQuery.ajax({
-  url: "../pages/parts/left-menu.html",
+  url: "pages/parts/left-menu.html",
   dataType: "html",
   success: function (response) {
     try {

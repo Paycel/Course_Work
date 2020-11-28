@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title> </title>
+  <title></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="https://kit.fontawesome.com/28036c9f66.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../css/main-style.css">
-  <script src="../scripts/libs/ICanHaz.min.js"></script>
+  <link rel="stylesheet" href="css/main-style.css">
+  <script src="scripts/libs/ICanHaz.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="../scripts/decoder.js"></script>
-  <script src="../scripts/loader_parts.js"></script>
-  <script src="../scripts/authors_dict.js"></script>
+  <script src="scripts/decoder.js"></script>
+  <script src="scripts/loader_parts.js"></script>
+  <script src="scripts/authors_dict.js"></script>
 </head>
 <body>
 <div class="scrollup rounded">
@@ -25,54 +25,79 @@
     </div>
     <div class="col-lg-4 order-2">
       <button type="button" class="btn digest-link btn-outline-dark float-right"
-              onclick="window.open('digest.html?author={{author}}&name={{name}}')">
+              onclick="window.open('digest.html?author={{author}}&name={{key}}')">
         Читать
       </button>
     </div>
   </div>
 </script>
-
 <header class="header hidden-block"></header>
 <div class="d-flex flex-lg-row flex-column justify-content-center">
   <div class="left-menu col-lg-3 mx-lg-3 pl-lg-1 pr-lg-3 mr-5 mt-4 mb-5 py-3 px-3 appearance order-2 order-lg-1"></div>
   <div class="d-block p-3 slideUp col-lg-8 container order-1 order-lg-2">
     <div class="d-flex flex-lg-row flex-column justify-content-center">
-      <div id="author-name"
+      <div id="digest-name"
            class="col-lg-8 d-flex align-items-center justify-content-center font-weight-bold order-1 p-lg-0 p-3"
            style="font-size: xx-large"></div>
       <div class="col-lg-4 order-2 m-auto" style="width: 25vh">
         <img src="#" alt="author image" id="author-image" style="width: inherit" class="float-right mr-2 rounded">
       </div>
     </div>
-    <div id="digests-data" class="p-3 m-2"></div>
+    <div class="mb-5 p-1">
+      <div id="digest-intro" class="m-2 p-2">
+      </div>
+      <div id="other-digests">
+      </div>
+    </div>
   </div>
 </div>
-<footer class="footer font-small bg-dark p-4 text-white appearance"></footer>
-
 <script>
   window.onload = function () {
-    var name = authors.get(param['name'])[1];
-    console.log(name);
-    document.title = name;
-    fetch('../authors/' + name + '.json')
+    var author = param['author'];
+    var digest = param['name'];
+    var name = authors.get(author)[1];
+    fetch('authors/' + name + '.json')
       .then(function (resp) {
         return resp.json();
       })
       .then(function (data) {
         console.log("json data author name: " + data.authorName);
-        $('#author-name').html(data.authorName);
-        $('#author-image').attr("src", "../img/authors/" + authors.get(param['name'])[0]);
-        var poems = [];
-        for (var key in data.poems)
-          if (data.poems.hasOwnProperty(key))
+        console.log("json data digest-list content: " + data.poems[digest]);
+        var list = data.poems[digest];
+        $('#author-image').attr("src", "img/authors/" + authors.get(author)[0]);
+        if (data.digests.hasOwnProperty(digest)) {
+          $('#digest-intro').html(data.digests[digest]);
+          $('#digest-name').html(digest);
+          document.title = digest;
+        } else if (list.length === 1) {
+          $('#digest-intro').html(data.digests[list[0]]);
+          $('#digest-name').html(list[0]);
+          document.title = list[0];
+        } else {
+          $('#digest-name').html(data.authorName + ". " + digest);
+          $('#digest-intro').html(data.intros[digest]);
+          document.title = data.authorName + ". " + digest;
+          var poems = [];
+          data.poems[digest].forEach(function (item) {
+            var temp = item;
+            console.log("temp before: " + temp);
+            if (item.indexOf(name) !== -1)
+              item = item.substr(item.indexOf(name) + name.length + 1);
+            if (item.indexOf('(Сб. ') !== -1)
+              item = item.substr(0, item.length - (item.lastIndexOf(')') - item.indexOf('(Сб. ')) - 1);
+            console.log("temp after: " + temp);
             poems.push({
-              name: key,
-              author: param['name']
+              author: author,
+              name: item,
+              key: temp
             });
-        poems.forEach(data => $('#digests-data').append(ich.digest_template(data)));
-      })
+          });
+          poems.forEach(data => $('#other-digests').append(ich.digest_template(data)));
+        }
+      });
   }
 </script>
+<footer class="footer font-small bg-dark p-4 text-white appearance"></footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
