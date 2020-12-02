@@ -1,6 +1,6 @@
-var tmp = new Array();
-var tmp2 = new Array();
-var param = new Array();
+var tmp = [];
+var tmp2 = [];
+var param = [];
 var get = decodeURI(location.search);
 if(get !== '') {
   tmp = (get.substr(1)).split('&');
