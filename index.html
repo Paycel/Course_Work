@@ -4,13 +4,16 @@
   <meta charset="UTF-8">
   <title>Главная</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="css/main-style.css">
+  <link rel="stylesheet" href="css/main-style.css" type="text/css">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"
+        type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/28036c9f66.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="scrollup rounded">
@@ -62,19 +65,9 @@
 </div>
 <footer class="footer font-small bg-dark p-4 text-white appearance"></footer>
 <!--scripts-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="https://kit.fontawesome.com/28036c9f66.js" crossorigin="anonymous"></script>
 <script src="scripts/libs/ICanHaz.min.js"></script>
 <script src="scripts/decoder.js"></script>
 <script src="scripts/loader_parts.js"></script>
-<script>
-  // navbar
-  $(window).on("load", function () {
-    $('#nav-poets').removeClass('active');
-    $('#nav-about').addClass('active');
-    $('#nav-sources').removeClass('active');
-  });
-</script>
 <script src="scripts/authors_dict.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -82,5 +75,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+<script type="text/javascript">
+  // navbar
+  function init() {
+    $('#nav-about').addClass('active');
+  }
+
+</script>
 </body>
 </html>

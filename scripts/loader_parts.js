@@ -1,41 +1,47 @@
-jQuery.ajax({
-  url: "pages/parts/header.html",
-  dataType: "html",
-  success: function (response) {
-    try {
-      document.getElementsByClassName("header")[0].innerHTML = response;
-    } catch (TypeError) {
-      console.log(TypeError.stackTraceLimit);
+init = function () {}
+$(document).ready(function() {
+  jQuery.ajax({
+    url: "pages/parts/header.html",
+    dataType: "html",
+    success: function (response) {
+      try {
+        document.getElementsByClassName("header")[0].innerHTML = response;
+      } catch (TypeError) {
+        console.log(TypeError.stackTraceLimit);
+      }
+    },
+    complete: function () {
+      init();
     }
-  }
-});
-jQuery.ajax({
-  url: "pages/parts/footer.html",
-  dataType: "html",
-  success: function (response) {
-    try {
-      document.getElementsByClassName("footer")[0].innerHTML = response;
-    } catch (TypeError) {
-      console.log(TypeError.stackTraceLimit);
+  });
+  jQuery.ajax({
+    url: "pages/parts/footer.html",
+    dataType: "html",
+    success: function (response) {
+      try {
+        document.getElementsByClassName("footer")[0].innerHTML = response;
+      } catch (TypeError) {
+        console.log(TypeError.stackTraceLimit);
+      }
     }
-  }
-});
-jQuery.ajax({
-  url: "pages/parts/left-menu.html",
-  dataType: "html",
-  success: function (response) {
-    try {
-      document.getElementsByClassName("left-menu")[0].innerHTML = response;
-      authors.forEach((value, key) => {
-        $('#left-menu-drop').find('ul').append(
-          "<li class=\"list-group-item float-left\"><a href=\"digests.html?name=" + key + "\">"
-          + key + " - Сборники</a></li>\n"
-        );
-      })
-    } catch (TypeError) {
-      console.log(TypeError.stackTraceLimit);
+  });
+  jQuery.ajax({
+    url: "pages/parts/left-menu.html",
+    dataType: "html",
+    success: function (response) {
+      try {
+        document.getElementsByClassName("left-menu")[0].innerHTML = response;
+        authors.forEach((value, key) => {
+          $('#left-menu-drop').find('ul').append(
+            "<li class=\"list-group-item float-left\"><a href=\"digests.html?name=" + key + "\">"
+            + key + " - Сборники</a></li>\n"
+          );
+        })
+      } catch (TypeError) {
+        console.log(TypeError.stackTraceLimit);
+      }
     }
-  }
+  });
 });
 $(function () {
   $('.scrollup').click(function () {
@@ -130,7 +136,6 @@ Toast.add = function (params) {
     container.classList.add('toasts');
     container.style.cssText = 'position: fixed; top: 15px; right: 15px; width: 250px;';
     document.body.appendChild(container);
-    // document.querySelector('header + div').appendChild(container);
   }
   document.querySelector('.toasts').appendChild(Toast.create(config.text, config.color));
   var toasts = document.querySelectorAll('.toast');
