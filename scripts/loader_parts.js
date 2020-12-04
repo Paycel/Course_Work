@@ -95,9 +95,10 @@ Toast.prototype = {
     }
   },
   hide: function () {
-    var event = new CustomEvent('hidden.toast', {detail: {toast: this.element}});
+    var event = jQuery.Event("hidden.toast");
+    event.toast = this.element;
     this.element.classList.remove('toast_show');
-    document.dispatchEvent(event);
+    jQuery("document").trigger(event);
   }
 };
 Toast.create = function (text, color) {
