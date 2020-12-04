@@ -16,8 +16,10 @@
     "browserify": "^17.0.0"
   },
   "dependencies": {
+    "@types/whatwg-fetch": "^0.0.33",
     "brfs": "^2.0.2",
     "express-browserify": "^1.0.3",
-    "uniq": "^1.0.1"
+    "uniq": "^1.0.1",
+    "whatwg-fetch": "^3.5.0"
   }
 }

@@ -4,10 +4,13 @@
   <meta charset="UTF-8">
   <title>Главная</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
   <link rel="stylesheet" href="css/main-style.css" type="text/css">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
   <link rel="manifest" href="site.webmanifest">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"
@@ -20,7 +23,7 @@
   <i class="fas fa-arrow-circle-up"></i>
 </div>
 <header class="header hidden-block"></header>
-<div class="d-flex flex-lg-row flex-column justify-content-center">
+<div class="main d-flex flex-lg-row flex-column justify-content-center">
   <div class="left-menu col-lg-3 mx-lg-3 pl-lg-1 pr-lg-3 mr-5 mt-4 mb-5 py-3 px-3 appearance order-2 order-lg-1"></div>
   <div class="p-3 slideUp col-lg-8 container order-1 order-lg-2">
     <div class="display-4 border-secondary border-bottom font-weight-bold p-2">Добро пожаловать!</div>
@@ -63,12 +66,12 @@
     </div>
   </div>
 </div>
-<footer class="footer font-small bg-dark p-4 text-white appearance"></footer>
+<footer class="footer font-small bg-dark p-4 text-white appearance mb-0"></footer>
 <!--scripts-->
 <script src="scripts/libs/ICanHaz.min.js"></script>
 <script src="scripts/decoder.js"></script>
-<script src="scripts/loader_parts.js"></script>
 <script src="scripts/authors_dict.js"></script>
+<script src="scripts/loader_parts.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
@@ -80,7 +83,6 @@
   function init() {
     $('#nav-about').addClass('active');
   }
-
 </script>
 </body>
 </html>

@@ -1,5 +1,6 @@
-init = function () {}
-$(document).ready(function() {
+init = function () {
+}
+$(document).ready(function () {
   jQuery.ajax({
     url: "pages/parts/header.html",
     dataType: "html",
@@ -29,17 +30,13 @@ $(document).ready(function() {
     url: "pages/parts/left-menu.html",
     dataType: "html",
     success: function (response) {
-      try {
-        document.getElementsByClassName("left-menu")[0].innerHTML = response;
-        authors.forEach((value, key) => {
-          $('#left-menu-drop').find('ul').append(
-            "<li class=\"list-group-item float-left\"><a href=\"digests.html?name=" + key + "\">"
-            + key + " - Сборники</a></li>\n"
-          );
-        })
-      } catch (TypeError) {
-        console.log(TypeError.stackTraceLimit);
-      }
+      document.getElementsByClassName("left-menu")[0].innerHTML = response;
+      Object.keys(authors).map(function (key) {
+        $('#left-menu-drop').find('ul').append(
+          "<li class=\"list-group-item float-left\"><a href=\"digests.html?name=" + key + "\">"
+          + key + " - Сборники</a></li>\n"
+        );
+      })
     }
   });
 });

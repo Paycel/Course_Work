@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <script src=https://cdn.jsdelivr.net/npm/promise-polyfill@8.1/dist/polyfill.min.js></script>
+  <script src=https://cdn.jsdelivr.net/npm/whatwg-fetch@3.0/dist/fetch.umd.min.js></script>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="manifest" href="site.webmanifest">
@@ -31,7 +33,7 @@
 </script>
 
 <header class="header hidden-block"></header>
-<div class="d-flex flex-lg-row flex-column justify-content-center">
+<div class="main d-flex flex-lg-row flex-column justify-content-center">
   <div class="left-menu col-lg-3 mx-lg-3 pl-lg-1 pr-lg-3 mr-5 mt-4 mb-5 py-3 px-3 appearance order-2 order-lg-1"></div>
   <div class="d-block p-3 slideUp col-lg-8 container order-1 order-lg-2">
     <div class="d-flex flex-lg-row flex-column justify-content-center">
@@ -53,8 +55,9 @@
 <script src="scripts/loader_parts.js"></script>
 <script src="scripts/authors_dict.js"></script>
 <script>
+
   window.onload = function () {
-    var name = authors.get(param['name'])[1];
+    var name = authors[param['name']][1];
     console.log(name);
     document.title = name;
     fetch('authors/' + name + '.json')
@@ -64,7 +67,7 @@
       .then(function (data) {
         console.log("json data author name: " + data.authorName);
         $('#author-name').html(data.authorName);
-        $('#author-image').attr("src", "img/authors/" + authors.get(param['name'])[0]);
+        $('#author-image').attr("src", "img/authors/" + authors[param['name']][0]);
         var poems = [];
         for (var key in data.poems)
           if (data.poems.hasOwnProperty(key))
@@ -72,7 +75,7 @@
               name: key,
               author: param['name']
             });
-        poems.forEach(data => $('#digests-data').append(ich.digest_template(data)));
+        for (var data in poems) $('#digests-data').append(ich.digest_template(poems[data]));
       })
   }
 </script>

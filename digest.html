@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <script src=https://cdn.jsdelivr.net/npm/promise-polyfill@8.1/dist/polyfill.min.js></script>
+  <script src=https://cdn.jsdelivr.net/npm/whatwg-fetch@3.0/dist/fetch.umd.min.js></script>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="manifest" href="site.webmanifest">
@@ -60,7 +62,7 @@
   window.onload = function () {
     var author = param['author'];
     var digest = param['name'];
-    var name = authors.get(author)[1];
+    var name = authors[author][1];
     fetch('authors/' + name + '.json')
       .then(function (resp) {
         return resp.json();
@@ -69,7 +71,7 @@
         console.log("json data author name: " + data.authorName);
         console.log("json data digest-list content: " + data.poems[digest]);
         var list = data.poems[digest];
-        $('#author-image').attr("src", "img/authors/" + authors.get(author)[0]);
+        $('#author-image').attr("src", "img/authors/" + authors[author][0]);
         if (data.digests.hasOwnProperty(digest)) {
           $('#digest-intro').html(data.digests[digest]);
           $('#digest-name').html(digest);
@@ -97,7 +99,7 @@
               key: temp
             });
           });
-          poems.forEach(data => $('#other-digests').append(ich.digest_template(data)));
+          for (var data in poems) $('#other-digests').append(ich.digest_template(poems[data]));
         }
       });
   }
